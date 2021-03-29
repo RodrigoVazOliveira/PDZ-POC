@@ -34,6 +34,9 @@ public class Contato {
 	@JoinColumn(name = "contas_id", nullable = false)
 	private Conta conta;
 	
+	@OneToOne(mappedBy = "contato")
+	private Conversacao conversacao;
+	
 	public Contato(Long id, Perfil perfil, Boolean bloqueio) {
 		super();
 		this.id = id;

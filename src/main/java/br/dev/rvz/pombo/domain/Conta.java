@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -36,5 +37,8 @@ public class Conta {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "perfis_id", unique = true)
 	private Perfil perfil;
-
+	
+	@OneToOne(mappedBy = "conta")
+	private Conversacao conversacao;
+	
 }
