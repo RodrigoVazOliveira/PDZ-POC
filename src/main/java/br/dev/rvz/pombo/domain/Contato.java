@@ -37,9 +37,8 @@ public class Contato {
 	@OneToOne(mappedBy = "contato")
 	private Conversacao conversacao;
 	
-	public Contato(Long id, Perfil perfil, Boolean bloqueio) {
+	public Contato(Perfil perfil, Boolean bloqueio) {
 		super();
-		this.id = id;
 		this.perfil = perfil;
 		this.bloqueio = bloqueio;
 	}

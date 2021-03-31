@@ -36,4 +36,13 @@ public class Conversacao {
 	
 	@OneToMany(mappedBy = "conversacao")
 	private List<Mensagem> mensagens;
+
+	public Conversacao(Conta conta, Contato contato, List<Mensagem> mensagens) {
+		super();
+		this.conta = conta;
+		this.contato = contato;
+		this.mensagens = mensagens;
+	}
+	
+	
 }

@@ -39,17 +39,13 @@ public class Perfil {
 	private Recado recado;
 	private Boolean ativo = true;
 	
-	public Perfil(Long id, String nomeCompleto, String numeroTelefone, String fotoPerfil, Recado recado,
+	public Perfil(String nomeCompleto, String numeroTelefone, String fotoPerfil, Recado recado,
 			Boolean ativo) {
 		super();
-		this.id = id;
 		this.nomeCompleto = nomeCompleto;
 		this.numeroTelefone = numeroTelefone;
 		this.fotoPerfil = fotoPerfil;
 		this.recado = recado;
 		this.ativo = ativo;
 	}
-	
-	
-	
 }
