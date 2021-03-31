@@ -1,5 +1,7 @@
 package br.dev.rvz.pombo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,9 @@ public class ContaService {
 		Conta novaConta = contaRepository.save(conta);
 		
 		return conta;
+	}
+	
+	public List<Conta> obterTodasAsContas() {
+		return (List<Conta>)  contaRepository.findAll();
 	}
 }

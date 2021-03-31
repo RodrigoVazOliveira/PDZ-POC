@@ -29,7 +29,7 @@ public class Perfil {
 	@Column(length = 80, nullable = false)
 	private String nomeCompleto;
 	
-	@Column(length = 25, nullable = false)
+	@Column(length = 25, nullable = false, unique = true)
 	private String numeroTelefone;
 	
 	@Column(length = 255)
@@ -37,7 +37,9 @@ public class Perfil {
 	
 	@Enumerated(EnumType.STRING)
 	private Recado recado;
-	private Boolean ativo = true;
+	
+	@Column(name = "ativo", nullable = false)
+	private Boolean ativo;
 	
 	public Perfil(String nomeCompleto, String numeroTelefone, String fotoPerfil, Recado recado,
 			Boolean ativo) {
