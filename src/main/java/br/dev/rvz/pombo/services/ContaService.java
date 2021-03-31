@@ -24,7 +24,7 @@ public class ContaService {
 		conta.setPerfil(conta.getPerfil());
 		Conta novaConta = contaRepository.save(conta);
 		
-		return conta;
+		return novaConta;
 	}
 	
 	public List<Conta> obterTodasAsContas() {
@@ -41,5 +41,10 @@ public class ContaService {
 		}
 		
 		return conta.get();
+	}
+	
+	public Conta atualizarConta(Conta conta) {
+		Conta novaConta = contaRepository.save(conta);
+		return novaConta;
 	}
 }
