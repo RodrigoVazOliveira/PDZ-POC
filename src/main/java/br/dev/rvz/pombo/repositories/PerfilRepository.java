@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import br.dev.rvz.pombo.domain.Perfil;
 
 public interface PerfilRepository extends CrudRepository<Perfil, Long> {
-
+	Perfil findByNumeroTelefone(String numeroTelefone);
 }
