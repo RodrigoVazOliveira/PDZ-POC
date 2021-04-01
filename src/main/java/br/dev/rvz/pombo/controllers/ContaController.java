@@ -31,7 +31,11 @@ public class ContaController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public @ResponseBody Conta gravarConta(@RequestBody Conta conta) {
-		return contaService.gravarNovaConta(conta);
+		try {
+			return contaService.gravarNovaConta(conta);
+		} catch(RuntimeException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
 	}
 	
 	@GetMapping
