@@ -21,10 +21,16 @@ public class ContaService {
 	
 	public Conta gravarNovaConta(Conta conta) {
 		
-		conta.setPerfil(conta.getPerfil());
-		Conta novaConta = contaRepository.save(conta);
-		
-		return novaConta;
+		try {
+			conta.setPerfil(conta.getPerfil());
+			conta.getPerfil().setAtivo(true);
+			Conta novaConta = contaRepository.save(conta);
+			
+			return novaConta;
+		}catch (RuntimeException e) {
+			throw new RuntimeException("Não foi possível fazer o cadastrado! " + e.getMessage());
+		}
+
 	}
 	
 	public List<Conta> obterTodasAsContas() {
@@ -44,7 +50,20 @@ public class ContaService {
 	}
 	
 	public Conta atualizarConta(Conta conta) {
-		Conta novaConta = contaRepository.save(conta);
-		return novaConta;
+		Optional<Conta> contaAntiga = contaRepository.findById(conta.getId());
+		
+		if (contaAntiga.isPresent()) {
+			Conta contaTemporaria = contaAntiga.get();
+			contaTemporaria.setSenha(conta.getSenha());
+			Perfil perfil = contaTemporaria.getPerfil();
+			perfil.setNomeCompleto(conta.getPerfil().getNomeCompleto());
+			perfil.setNumeroTelefone(conta.getPerfil().getNumeroTelefone());
+			perfil.setRecado(conta.getPerfil().getRecado());
+			perfil.setFotoPerfil(conta.getPerfil().getFotoPerfil());
+			perfil.setId(conta.getId());
+			return contaRepository.save(contaTemporaria);
+		}
+		
+		return gravarNovaConta(conta);
 	}
 }
