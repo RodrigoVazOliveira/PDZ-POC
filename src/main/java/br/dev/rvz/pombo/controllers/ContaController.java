@@ -60,7 +60,7 @@ public class ContaController {
 		}
 	}
 
-	@DeleteMapping("{id}/")
+	@DeleteMapping("{idConta}/")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void removerContaPorId(@PathVariable Long idConta) {
 		try {

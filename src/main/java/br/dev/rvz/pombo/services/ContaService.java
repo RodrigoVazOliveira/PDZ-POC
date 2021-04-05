@@ -114,9 +114,11 @@ public class ContaService {
 
 	public void removerConta(Long idConta) {
 		Optional<Conta> conta = contaRepository.findById(idConta);
+
 		if (!conta.isPresent()) {
 			throw new RuntimeException("Conta não localizada");
 		}
+
 		contaRepository.delete(conta.get());
 	}
 }

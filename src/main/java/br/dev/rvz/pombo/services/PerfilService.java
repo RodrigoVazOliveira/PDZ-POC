@@ -1,12 +1,11 @@
 package br.dev.rvz.pombo.services;
 
-import java.util.Optional;
-
+import br.dev.rvz.pombo.domain.Perfil;
+import br.dev.rvz.pombo.repositories.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.dev.rvz.pombo.domain.Perfil;
-import br.dev.rvz.pombo.repositories.PerfilRepository;
+import java.util.Optional;
 
 @Service
 public class PerfilService {
@@ -23,5 +22,4 @@ public class PerfilService {
 		
 		return perfil.get();
 	}
-
 }
