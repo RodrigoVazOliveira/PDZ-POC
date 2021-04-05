@@ -84,27 +84,27 @@ public class ContaService {
 		} 
 		
 		
-		if (!perfilAn.getNomeCompleto(conta.getPerfil().getNomeCompleto()) 
+		if (!perfilAn.getNomeCompleto().equals(conta.getPerfil().getNomeCompleto()) 
 				&& conta.getPerfil().getNomeCompleto() != null) {
 			perfilAn.setNomeCompleto(conta.getPerfil().getNomeCompleto());
 		}
 		
-		if (!perfilAn.getNumeroTelefone(conta.getPerfil().getNumeroTelefone()) 
+		if (!perfilAn.getNumeroTelefone().equals(conta.getPerfil().getNumeroTelefone()) 
 				&& conta.getPerfil().getNumeroTelefone() != null) {
 			perfilAn.setNumeroTelefone(conta.getPerfil().getNumeroTelefone());
 		}
 		
-		if (!perfilAn.getRecado(conta.getPerfil().getRecado()) 
+		if (!perfilAn.getRecado().equals(conta.getPerfil().getRecado()) 
 				&& conta.getPerfil().getRecado() != null) {
 			perfilAn.setRecado(conta.getPerfil().getRecado());
 		}
 		
-		if (!perfilAn.getFotoPerfil(conta.getPerfil().getFotoPerfil()) 
+		if (!perfilAn.getFotoPerfil().equals(conta.getPerfil().getFotoPerfil()) 
 				&& conta.getPerfil().getFotoPerfil() != null) {
 			perfilAn.setFotoPerfil(conta.getPerfil().getFotoPerfil());
 		}
 		
-		if (!perfilAn.getAtivo(conta.getPerfil().getAtivo()) 
+		if (!perfilAn.getAtivo().equals(conta.getPerfil().getAtivo()) 
 				&& conta.getPerfil().getAtivo() != null) {
 			perfilAn.setAtivo(conta.getPerfil().getAtivo());
 		}
