@@ -7,6 +7,7 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -59,6 +60,17 @@ public class ContaController {
 	public @ResponseBody Conta atualizarTodaConta(@PathVariable Long id, @RequestBody Conta conta) {
 		conta.setId(id);
 		return contaService.atualizarConta(conta);
+	}
+	
+	@PatchMapping("{id}/")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public @ResponseBody Conta atualizarParcialConta(@PathVariable Long id, @RequestBody Conta conta) {
+		conta.setId(id);
+		try {
+			return contaService.atualizarParcialConta(conta);
+		} catch (RuntimeException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
 	}
 	
 }
