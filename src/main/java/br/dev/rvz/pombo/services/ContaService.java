@@ -1,14 +1,13 @@
 package br.dev.rvz.pombo.services;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.dev.rvz.pombo.domain.Conta;
 import br.dev.rvz.pombo.domain.Perfil;
 import br.dev.rvz.pombo.repositories.ContaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContaService {
@@ -111,5 +110,13 @@ public class ContaService {
 		
 		
 		return atualizarConta(contaAn);
+	}
+
+	public void removerConta(Long idConta) {
+		Optional<Conta> conta = contaRepository.findById(idConta);
+		if (!conta.isPresent()) {
+			throw new RuntimeException("Conta não localizada");
+		}
+		contaRepository.delete(conta.get());
 	}
 }
