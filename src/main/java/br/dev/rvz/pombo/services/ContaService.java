@@ -66,4 +66,50 @@ public class ContaService {
 		
 		return gravarNovaConta(conta);
 	}
+	
+	
+	public Conta atualizarParcialConta(Conta conta) {
+		Optional<Conta> contaAntiga = contaRepository.findById(conta.getId());
+		
+		if (!contaAntiga.isPresent()) {
+			throw new RuntimeException("Conta não localizado!");
+		}
+		
+		Conta contaAn = contaAntiga.get();
+		Perfil perfilAn = contaAn.getPerfil();
+ 		
+		if (!contaAn.getSenha().equals(conta.getSenha()) 
+				&& conta.getSenha() != null) {
+			contaAn.setSenha(conta.getSenha());
+		} 
+		
+		
+		if (!perfilAn.getNomeCompleto(conta.getPerfil().getNomeCompleto()) 
+				&& conta.getPerfil().getNomeCompleto() != null) {
+			perfilAn.setNomeCompleto(conta.getPerfil().getNomeCompleto());
+		}
+		
+		if (!perfilAn.getNumeroTelefone(conta.getPerfil().getNumeroTelefone()) 
+				&& conta.getPerfil().getNumeroTelefone() != null) {
+			perfilAn.setNumeroTelefone(conta.getPerfil().getNumeroTelefone());
+		}
+		
+		if (!perfilAn.getRecado(conta.getPerfil().getRecado()) 
+				&& conta.getPerfil().getRecado() != null) {
+			perfilAn.setRecado(conta.getPerfil().getRecado());
+		}
+		
+		if (!perfilAn.getFotoPerfil(conta.getPerfil().getFotoPerfil()) 
+				&& conta.getPerfil().getFotoPerfil() != null) {
+			perfilAn.setFotoPerfil(conta.getPerfil().getFotoPerfil());
+		}
+		
+		if (!perfilAn.getAtivo(conta.getPerfil().getAtivo()) 
+				&& conta.getPerfil().getAtivo() != null) {
+			perfilAn.setAtivo(conta.getPerfil().getAtivo());
+		}
+		
+		
+		return atualizarConta(contaAn);
+	}
 }
