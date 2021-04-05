@@ -11,6 +11,9 @@ public class ContatoService {
     @Autowired
     private ContatoRepository contatoRepository;
 
+    @Autowired
+    private ContaService contaService;
+
     public Contato gravarNovoContato(Contato contato) throws RuntimeException {
         return contatoRepository.save(contato);
     }

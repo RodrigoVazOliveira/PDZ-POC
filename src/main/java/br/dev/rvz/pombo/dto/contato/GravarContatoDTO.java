@@ -4,13 +4,13 @@ import br.dev.rvz.pombo.domain.Conta;
 import br.dev.rvz.pombo.domain.Contato;
 import br.dev.rvz.pombo.domain.Perfil;
 
-public class GravarContato {
+public class GravarContatoDTO {
 
     private Perfil perfil;
     private Long idConta;
     private Boolean bloqueio;
 
-    public GravarContato() {
+    public GravarContatoDTO() {
     }
 
     public Perfil getPerfil() {
