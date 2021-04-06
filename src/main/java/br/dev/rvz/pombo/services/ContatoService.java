@@ -63,4 +63,14 @@ public class ContatoService {
 
         return contatoRepository.save(contatoAntigo);
     }
+
+    public void removerContato(Long id) {
+        Optional<Contato> contatoOptional = contatoRepository.findById(id);
+
+        if (!contatoOptional.isPresent()) {
+            throw new RuntimeException("nenhum contato foi localizado com ID " + id);
+        }
+
+        contatoRepository.delete(contatoOptional.get());
+    }
 }
