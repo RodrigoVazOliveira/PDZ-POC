@@ -18,4 +18,10 @@ public class ConversacaoController {
     public Conversacao criarNovaConversa(@RequestBody Conversacao conversacao) {
         return conversacaoService.criarNovaConversacao(conversacao);
     }
+
+    @DeleteMapping("{id}/")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void excluirConversa(@PathVariable Long id) {
+
+    }
 }
