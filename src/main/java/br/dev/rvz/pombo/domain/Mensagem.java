@@ -31,7 +31,7 @@ public class Mensagem {
 	
 	private LocalDateTime dataHora;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "conversacoes_id", nullable = false)
 	private Conversacao conversacao;
 }

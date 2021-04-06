@@ -30,7 +30,7 @@ public class Conversacao {
 	@JoinColumn(name = "contas_id")
 	private Conta conta;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "contatos_id")
 	private Contato contato;
 	

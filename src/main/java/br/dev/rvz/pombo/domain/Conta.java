@@ -32,7 +32,7 @@ public class Conta {
 	private String senha;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "conta")
+	@OneToMany
 	private List<Contato> contatos;
 	
 	@OneToOne(cascade = CascadeType.ALL)
