@@ -11,4 +11,7 @@ public class ConversacaoService {
     @Autowired
     private ConversacaoRepository conversacaoRepository;
 
+    public Conversacao criarNovaConversacao(Conversacao conversacao) {
+        return conversacaoRepository.save(conversacao);
+    }
 }
