@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,8 @@ public class Conta {
 	
 	@Column(length = 25)
 	private String senha;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "conta")
 	private List<Contato> contatos;
 	
