@@ -14,7 +14,7 @@ public class ContaService {
 	
 	@Autowired
 	private ContaRepository contaRepository;
-	
+
 	@Autowired
 	private PerfilService perfilService;
 	
@@ -23,9 +23,7 @@ public class ContaService {
 		try {
 			conta.setPerfil(conta.getPerfil());
 			conta.getPerfil().setAtivo(true);
-			Conta novaConta = contaRepository.save(conta);
-			
-			return novaConta;
+			return contaRepository.save(conta);
 		}catch (RuntimeException e) {
 			throw new RuntimeException("Não foi possível fazer o cadastrado! " + e.getMessage());
 		}
@@ -120,5 +118,15 @@ public class ContaService {
 		}
 
 		contaRepository.delete(conta.get());
+	}
+
+	public Conta procurarContaPorId(Conta conta) {
+		Optional<Conta> contaOptional = contaRepository.findById(conta.getId());
+
+		if (!contaOptional.isPresent()) {
+			throw new RuntimeException("Conta não localizada com o ID: " + conta.getId());
+		}
+
+		return contaOptional.get();
 	}
 }

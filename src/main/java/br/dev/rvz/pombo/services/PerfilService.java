@@ -22,4 +22,14 @@ public class PerfilService {
 		
 		return perfil.get();
 	}
+
+	public Perfil procurarPefilPorNumeroDeTelefone(Perfil perfil) {
+		Optional<Perfil> perfilOptional = perfilRepository.findByNumeroTelefone(perfil.getNumeroTelefone());
+
+		if (!perfilOptional.isPresent()) {
+			return null;
+		}
+
+		return perfilOptional.get();
+	}
 }
