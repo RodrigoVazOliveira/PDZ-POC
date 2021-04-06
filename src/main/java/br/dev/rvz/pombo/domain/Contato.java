@@ -25,12 +25,12 @@ public class Contato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "perfis_id", unique = true)
 	private Perfil perfil;
 	private Boolean bloqueio;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "contas_id", nullable = false)
 	private Conta conta;
 	
