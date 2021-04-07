@@ -13,14 +13,16 @@ import java.util.Optional;
 @Service
 public class ContatoService {
 
-    @Autowired
     private ContatoRepository contatoRepository;
-
-    @Autowired
     private ContaService contaService;
+    private PerfilService perfilService;
 
     @Autowired
-    private PerfilService perfilService;
+    public ContatoService(ContatoRepository contatoRepository, ContaService contaService, PerfilService perfilService) {
+        this.contatoRepository = contatoRepository;
+        this.contaService = contaService;
+        this.perfilService = perfilService;
+    }
 
     public Contato gravarNovoContato(Contato contato) throws RuntimeException {
         buscarConta(contato);
