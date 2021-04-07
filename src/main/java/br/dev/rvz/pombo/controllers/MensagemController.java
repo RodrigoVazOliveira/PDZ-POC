@@ -16,6 +16,6 @@ public class MensagemController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Mensagem enviarNovaMensagem(@RequestBody Mensagem mensagem) {
-        mensagemService.enviarNovaMensagem(mensagem);
+        return mensagemService.enviarNovaMensagem(mensagem);
     }
 }

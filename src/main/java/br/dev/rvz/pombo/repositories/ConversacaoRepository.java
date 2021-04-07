@@ -5,5 +5,4 @@ import org.springframework.data.repository.CrudRepository;
 import br.dev.rvz.pombo.domain.Conversacao;
 
 public interface ConversacaoRepository extends CrudRepository<Conversacao, Long>{
-
 }
